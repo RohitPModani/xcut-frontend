@@ -164,7 +164,7 @@ export function URLShortener() {
       <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-8 sm:space-y-12">
         <div className="text-center space-y-6 sm:space-y-8">
           <div className="space-y-3 sm:space-y-4">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-zinc-100 dark:to-zinc-400">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-zinc-600 dark:from-white dark:to-zinc-400">
               Shorten Your URLs
             </h1>
             <p className="text-lg sm:text-xl max-w-2xl mx-auto text-zinc-600 dark:text-zinc-400">
@@ -275,49 +275,51 @@ export function URLShortener() {
       </div>
       {/* QR Code Modal */}
       {showQR && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 max-w-sm w-full space-y-6 border border-zinc-200 dark:border-zinc-700 shadow-xl">
-            <div className="flex justify-between items-center">
-              <h3 className="text-xl font-semibold text-zinc-800 dark:text-zinc-100">
-                QR Code
-              </h3>
-              <button
-                onClick={() => setShowQR(false)}
-                className="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-700 rounded-full transition-colors text-zinc-500 dark:text-zinc-400"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="card max-w-sm w-full">
+            <div className="p-6 space-y-6">
+              <div className="flex justify-between items-center">
+                <h3 className="text-xl font-semibold text-zinc-800 dark:text-zinc-100">
+                  QR Code
+                </h3>
+                <button
+                  onClick={() => setShowQR(false)}
+                  className="p-2 hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-full transition-colors text-zinc-500 dark:text-zinc-400"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
 
-            <div className="bg-white dark:bg-zinc-700 p-4 rounded-lg flex items-center justify-center border border-zinc-200 dark:border-zinc-600">
-              <QRCodeSVG
-                value={shortenedUrl}
-                size={200}
-                level="H"
-                className="w-full max-w-[200px] qrcode-svg"
-                bgColor="#FFFFFF"
-                fgColor="#000000"
-                marginSize={2}
-              />
-            </div>
+              <div className="bg-white p-4 rounded-lg flex items-center justify-center border border-zinc-200">
+                <QRCodeSVG
+                  value={shortenedUrl}
+                  size={200}
+                  level="H"
+                  className="w-full max-w-[200px] qrcode-svg"
+                  bgColor="#FFFFFF"
+                  fgColor="#000000"
+                  marginSize={2}
+                />
+              </div>
 
-            <div className="flex justify-center items-center gap-3">
-              <button
-                onClick={() => handleDownloadQR("png")}
-                className="button-primary flex-1"
-              >
-                <div className="flex items-center justify-center gap-2">
-                  <Download className="h-4 w-4" /> PNG
-                </div>
-              </button>
-              <button
-                onClick={() => handleDownloadQR("svg")}
-                className="button-primary flex-1"
-              >
-                <div className="flex items-center justify-center gap-2">
-                  <Download className="h-4 w-4" /> SVG
-                </div>
-              </button>
+              <div className="flex justify-center items-center gap-3">
+                <button
+                  onClick={() => handleDownloadQR("png")}
+                  className="button-primary flex-1"
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <Download className="h-4 w-4" /> PNG
+                  </div>
+                </button>
+                <button
+                  onClick={() => handleDownloadQR("svg")}
+                  className="button-primary flex-1"
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <Download className="h-4 w-4" /> SVG
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>
