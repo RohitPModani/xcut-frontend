@@ -185,7 +185,7 @@ export function URLShortener() {
               <button
                 onClick={handleShortenUrl}
                 disabled={isLoading}
-                className="button-primary whitespace-nowrap"
+                className="button-primary whitespace-nowrap w-full sm:w-auto"
               >
                 {isLoading ? (
                   <span className="flex items-center gap-2">
@@ -207,7 +207,10 @@ export function URLShortener() {
                     Shortening...
                   </span>
                 ) : (
-                  "Shorten URL"
+                  <span className="flex items-center justify-center gap-2">
+                    <WandSparkles className="h-4 w-4" />
+                    Shorten URL
+                  </span>
                 )}
               </button>
             </div>
@@ -227,7 +230,7 @@ export function URLShortener() {
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 bg-white dark:bg-zinc-800 p-3 sm:p-4 rounded-lg border border-zinc-200 dark:border-zinc-700">
                       <button
                         onClick={() => handleCopy(shortenedUrl)}
-                        className="flex-1 text-left min-w-0"
+                        className="flex-1 text-left min-w-0 w-full"
                       >
                         <p className="text-base sm:text-lg font-semibold text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors truncate">
                           {shortenedUrl}
@@ -235,31 +238,31 @@ export function URLShortener() {
                       </button>
 
                       {/* Action Buttons */}
-                      <div className="flex gap-2 w-full sm:w-auto justify-end">
+                      <div className="flex flex-wrap gap-2 w-full sm:w-auto justify-center sm:justify-end">
                         <button
                           onClick={() => handleCopy(shortenedUrl)}
-                          className="button-primary"
+                          className="button-primary flex-1 sm:flex-none min-w-[60px] flex items-center justify-center"
                           title="Copy to clipboard"
                         >
                           <Copy className="h-4 w-4" />
                         </button>
                         <button
                           onClick={() => handleRedirect(shortenedUrl)}
-                          className="button-primary"
+                          className="button-primary flex-1 sm:flex-none min-w-[60px] flex items-center justify-center"
                           title="Open original URL"
                         >
                           <ExternalLink className="h-4 w-4" />
                         </button>
                         <button
                           onClick={() => handleGenerateQR()}
-                          className="button-primary"
+                          className="button-primary flex-1 sm:flex-none min-w-[60px] flex items-center justify-center"
                           title="Generate QR code"
                         >
                           <QrCode className="h-4 w-4" />
                         </button>
                         <button
                           onClick={() => handleShare(shortenedUrl)}
-                          className="button-primary"
+                          className="button-primary flex-1 sm:flex-none min-w-[60px] flex items-center justify-center"
                           title="Share link"
                         >
                           <Share className="h-4 w-4" />

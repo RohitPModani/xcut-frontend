@@ -70,7 +70,7 @@ export function VisitsAnalytics() {
             <button
               onClick={handleGetVisits}
               disabled={isLoading}
-              className="button-primary whitespace-nowrap"
+              className="button-primary whitespace-nowrap w-full sm:w-auto"
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
@@ -92,7 +92,7 @@ export function VisitsAnalytics() {
                   Loading...
                 </span>
               ) : (
-                <span className="flex items-center gap-2">
+                <span className="flex items-center justify-center gap-2">
                   <BarChart className="h-4 w-4" />
                   Get Visits
                 </span>
@@ -101,7 +101,7 @@ export function VisitsAnalytics() {
           </div>
 
             <div className="space-y-4 mt-6">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
                 <h3 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200">
                   Analytics Summary
                 </h3>
