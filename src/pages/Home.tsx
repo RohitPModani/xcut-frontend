@@ -15,7 +15,7 @@ function Home() {
           onClick={handleLogoClick}
           className="text-lg sm:text-2xl font-bold text-zinc-800 dark:text-white hover:text-zinc-700 dark:hover:text-zinc-400 transition focus:outline-none"
         >
-          xCut
+          xURL
         </button>
 
         <div className="flex items-center gap-2 sm:gap-4">
